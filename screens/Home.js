@@ -9,7 +9,7 @@ import RestaurantItem, {
 } from "../components/home/RestaurantItem";
 import SearchBar from "../components/home/SearchBar";
 
-const YELP_API_KEY = `RMLSIwjD6N8NfiKiv3avvp7Ma28S2Wr-tJUoO10yqW1F2cBMSNXVD39wx-cF9LCiIv-YkDeCo4hHnpm_zyH1vwTE86oYL5R6Z0R7M6AeJO7Ramh2ug_IKzh6x76uYXYx`;
+const YELP_API = `process.env.REACT_APP_YELP`;
 
 export default function Home() {
   // sets seed/fake data to be default data if API data isn't loaded
@@ -20,7 +20,7 @@ export default function Home() {
     const yelpUrl = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}`;
     const apiOptions = {
       headers: {
-        Authorization: `Bearer ${YELP_API_KEY}`,
+        Authorization: `Bearer ${YELP_API}`,
       },
     };
     return fetch(yelpUrl, apiOptions)
